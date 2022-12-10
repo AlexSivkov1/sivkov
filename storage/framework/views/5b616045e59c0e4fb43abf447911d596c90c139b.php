@@ -90,6 +90,27 @@
             <?php echo $__env->yieldContent('content'); ?>
         </main>
     </div>
+
+
+    <script>
+                <?php if(Session::has('messege')): ?>
+        var type = "<?php echo e(Session::get('alert-type','info')); ?>";
+        switch (type) {
+            case 'info':
+                toastr.info("<?php echo e(Session::get('messege')); ?>");
+                break;
+            case 'success':
+                toastr.success("<?php echo e(Session::get('messege')); ?>");
+                break;
+            case 'warning':
+                toastr.warning("<?php echo e(Session::get('messege')); ?>");
+                break;
+            case 'error':
+                toastr.error("<?php echo e(Session::get('messege')); ?>");
+                break;
+        }
+        <?php endif; ?>
+    </script>
 </body>
 </html>
 <?php /**PATH D:\OSPanel\domains\sivkov\resources\views/layouts/app.blade.php ENDPATH**/ ?>

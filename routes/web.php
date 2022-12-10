@@ -39,6 +39,8 @@ Route::group([
     function (){
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
+        Route::get('logout', 'DashboardController@logout')->name('logout');
+
     }
 );
 
