@@ -12,9 +12,7 @@
             </div><!-- sl-page-title -->
 
             <div class="card pd-20 pd-sm-40">
-                <h6 class="card-body-title">Category Update
-
-                </h6>
+                <h6 class="card-body-title">Category Update</h6>
 
 
                 <div class="table-wrapper">
@@ -30,7 +28,7 @@
                     @endif
 
 
-                    <form method="post" action="{{url('update/category/'. $category->id)}}">
+                    <form method="post" action="{{url('admin/update/category/'. $category->id)}}">
                         @csrf
                         <div class="modal-body pd-20">
                             <div class="form-group">

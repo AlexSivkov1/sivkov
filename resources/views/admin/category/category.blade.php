@@ -13,8 +13,7 @@
 
             <div class="card pd-20 pd-sm-40">
                 <h6 class="card-body-title">Category List
-                    <a href="#" class="btn btn-sm btn-warning" style="float:right;" data-toggle="modal"
-                       data-target="#modaldemo3">Add New</a>
+                    <a href="#" class="btn btn-sm btn-warning" style="float:right;" data-toggle="modal" data-target="#modaldemo3">Add New</a>
                 </h6>
 
 
@@ -24,17 +23,19 @@
                         <tr>
                             <th class="wd-15p">ID</th>
                             <th class="wd-15p">Category Name</th>
-                            <th class="wd-20p">Action</th>
+                            <th class="wd-20p text-center">Action</th>
 
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($category as $row)
+                        @foreach($categories as $row)
                             <tr>
                                 <td>{{$row->id}}</td>
                                 <td>{{ $row->category_name }}</td>
-                                <td><a href="{{URL::to('edit/category/'. $row->id)}}" class="btn btn-sm btn-info">Edit</a>
-                                    <a href="{{URL::to('delete/category/'. $row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a></td>
+                                <td>
+                                    <a style="width: 45%" href="{{URL::to('admin/edit/category/'. $row->id)}}" class="btn btn-sm btn-info">Edit</a>
+                                    <a style="width: 45%" href="{{URL::to('admin/delete/category/'. $row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a>
+                                </td>
 
                             </tr>
                         @endforeach
@@ -72,7 +73,7 @@
                 @endif
 
 
-                <form method="post" action="{{route('store.category')}}">
+                <form method="post" action="{{route('admin.store.category')}}">
                     @csrf
                     <div class="modal-body pd-20">
                         <div class="form-group">

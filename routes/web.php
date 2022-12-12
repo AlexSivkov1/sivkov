@@ -39,10 +39,33 @@ Route::group([
     function (){
         Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
-        Route::get('logout', 'DashboardController@logout')->name('logout');
+Route::get('logout', 'DashboardController@logout')->name('logout');
+Route::get('categories/', 'CategoryController@index')->name('categories');
+Route::post('store/category', 'CategoryController@store')->name('store.category');
+Route::get('delete/category/{id}', 'CategoryController@delete');
+Route::get('edit/category/{id}', 'CategoryController@edit');
+Route::post('update/category/{id}', 'CategoryController@update');
+
+
+
+
+
 
     }
 );
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Author Group
 Route::group([
