@@ -1,19 +1,5 @@
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <?php $__env->startSection('admin_content'); ?>
 
 

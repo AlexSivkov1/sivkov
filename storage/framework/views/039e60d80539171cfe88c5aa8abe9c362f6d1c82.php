@@ -1,22 +1,7 @@
 
 
-
-
-
 <?php $__env->startSection('content'); ?>
-
-
-
-
 <div class="container">
-
-    <?php if(session('successMsg')): ?>
-        <div class="alert alert-success" role="alert">
-            <?php echo e(session('successMsg')); ?>
-
-        </div>
-    <?php endif; ?>
-
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">

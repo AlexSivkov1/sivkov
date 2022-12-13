@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('author.author_app')
 
 @section('content')
     <section class="hero" id="hero">
@@ -13,10 +13,10 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-1 inner">
                     <h1 class="animated fadeInDown">
-                        J<span style="color:#E04343;">o</span>hn<br/>
-                        <span>D<span style="color:#FFE800">o</span>e</span>
+                        S<span style="color:#E04343;">IV</span>KOV<br/>
+                        <span>Pro<span style="color:#FFE800">fi</span>le</span>
                     </h1><!-- Title -->
-                    <h3 class="animated fadeInUp delay-05s"><span class="rotate">Web Designer,Photographer,3d Artist</span></h3><!-- Text Rotator -->
+                    <h3 class="animated fadeInUp delay-05s"><span class="rotate">English Teacher's Profile</span></h3><!-- Text Rotator -->
                 </div>
             </div>
             <!-- Learn More Button -->
@@ -24,7 +24,7 @@
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <a href="index.html#about" class="scrollto wow fadeInUp delay-5s ">
                         <p>SEE MORE</p>
-                        <p class="scrollto--arrow"><img src="img/scroll-down.png" alt="scroll down arrow"></p>
+                        <p class="scrollto--arrow"><img src="{{asset('public/frontend/img/scroll-down.png')}}" alt="scroll down arrow"></p>
                     </a>
                 </div>
             </div>
@@ -33,39 +33,13 @@
     <!-- Header Image End -->
 
 
-<!-- ****************************** Preloader ************************** -->
-<div id="preloader"></div>
+
 
 
 <!-- ==========================
 HEADER SECTION
 =========================== -->
-<header id="home">
-    <!-- creative menu -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="menu-wrap">
-                <nav class="menu">
-                    <!-- Menu Links -->
-                    <div class="icon-list">
-                        <a href="index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
-                        <a href="index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
-                        <a href="index.html#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a>
-                        <a href="index.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
-                        <a href="index.html#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a>
-                        <a href="index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
-                    </div>
-                </nav>
-            </div>
-            <button class="menu-button" id="open-button"></button><!-- menu button -->
-        </div><!--/row-->
-    </div><!--/container-->
-    <!-- Header Image -->
 
-</header>
-<!-- ==========================
-HEADER SECTION END
-=========================== -->
 
     <div class="container-fluid">
         <!-- About 1 -->
@@ -130,7 +104,7 @@ PORTFOLIO SECTION
         <div class="col-md-3 col-sm-6">
             <div class="overlay-effect effects clearfix">
                 <div class="img">
-                    <a href="img/portfolio/portfolio-01-large.jpg" data-lightbox="roadtrip" title="Project One - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-01-thumbnail.jpg" alt="Portfolio Item"></a>
+                    <a href="{{asset('public/frontend/img/portfolio/portfolio-01-large.jpg')}}" data-lightbox="roadtrip" title="Project One - Lorem Ipsum"><img class="grayscale" src="{{asset('public/frontend/img/portfolio/portfolio-01-thumbnail.jpg')}}" alt="Portfolio Item"></a>
                 </div>
             </div>
         </div>
@@ -140,7 +114,7 @@ PORTFOLIO SECTION
         <div class="col-md-3 col-sm-6">
             <div class="overlay-effect effects clearfix">
                 <div class="img">
-                    <a href="img/portfolio/portfolio-02-large.jpg" data-lightbox="roadtrip" title="Project Two - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-02-thumbnail.jpg" alt="Portfolio Item"></a>
+                    <a href="{{asset('public/frontend/img/portfolio/portfolio-02-large.jpg')}}" data-lightbox="roadtrip" title="Project Two - Lorem Ipsum"><img class="grayscale" src="{{asset('public/frontend/img/portfolio/portfolio-02-thumbnail.jpg')}}" alt="Portfolio Item"></a>
                 </div>
             </div>
         </div>
@@ -150,7 +124,7 @@ PORTFOLIO SECTION
         <div class="col-md-3 col-sm-6">
             <div class="overlay-effect effects clearfix">
                 <div class="img">
-                    <a href="img/portfolio/portfolio-03-large.jpg" data-lightbox="roadtrip" title="Project Three - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-03-thumbnail.jpg" alt="Portfolio Item"></a>
+                    <a href="{{asset('public/frontend/img/portfolio/portfolio-03-large.jpg')}}" data-lightbox="roadtrip" title="Project Three - Lorem Ipsum"><img class="grayscale" src="{{asset('public/frontend/img/portfolio/portfolio-03-thumbnail.jpg')}}" alt="Portfolio Item"></a>
                 </div>
             </div>
         </div>
@@ -160,7 +134,7 @@ PORTFOLIO SECTION
         <div class="col-md-3 col-sm-6 ">
             <div class="overlay-effect effects clearfix">
                 <div class="img">
-                    <a href="img/portfolio/portfolio-04-large.jpg" data-lightbox="roadtrip" title="Project Four - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-04-thumbnail.jpg" alt="Portfolio Item"></a>
+                    <a href="{{asset('public/frontend/img/portfolio/portfolio-04-large.jpg')}}" data-lightbox="roadtrip" title="Project Four - Lorem Ipsum"><img class="grayscale" src="{{asset('public/frontend/img/portfolio/portfolio-04-thumbnail.jpg')}}" alt="Portfolio Item"></a>
                 </div>
             </div>
         </div>
@@ -170,7 +144,7 @@ PORTFOLIO SECTION
         <div class="col-md-3 col-sm-6 ">
             <div class="overlay-effect effects clearfix">
                 <div class="img">
-                    <a href="img/portfolio/portfolio-05-large.jpg" data-lightbox="roadtrip" title="Project Five - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-05-thumbnail.jpg" alt="Portfolio Item"></a>
+                    <a href="{{asset('public/frontend/img/portfolio/portfolio-05-large.jpg')}}" data-lightbox="roadtrip" title="Project Five - Lorem Ipsum"><img class="grayscale" src="{{asset('public/frontend/img/portfolio/portfolio-05-thumbnail.jpg')}}" alt="Portfolio Item"></a>
                 </div>
             </div>
         </div>
@@ -180,7 +154,7 @@ PORTFOLIO SECTION
         <div class="col-md-3 col-sm-6">
             <div class="overlay-effect effects clearfix">
                 <div class="img">
-                    <a href="img/portfolio/portfolio-06-large.jpg" data-lightbox="roadtrip" title="Project Six - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-06-thumbnail.jpg" alt="Portfolio Item"></a>
+                    <a href="{{asset('public/frontend/img/portfolio/portfolio-06-large.jpg')}}" data-lightbox="roadtrip" title="Project Six - Lorem Ipsum"><img class="grayscale" src="{{asset('public/frontend/img/portfolio/portfolio-06-thumbnail.jpg')}}" alt="Portfolio Item"></a>
                 </div>
             </div>
         </div>
@@ -190,7 +164,7 @@ PORTFOLIO SECTION
         <div class="col-md-3 col-sm-6">
             <div class="overlay-effect effects clearfix">
                 <div class="img">
-                    <a href="img/portfolio/portfolio-07-large.jpg" data-lightbox="roadtrip" title="Project Seven - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-07-thumbnail.jpg" alt="Portfolio Item"></a>
+                    <a href="{{asset('public/frontend/img/portfolio/portfolio-07-large.jpg')}}" data-lightbox="roadtrip" title="Project Seven - Lorem Ipsum"><img class="grayscale" src="{{asset('public/frontend/img/portfolio/portfolio-07-thumbnail.jpg')}}" alt="Portfolio Item"></a>
                 </div>
             </div>
         </div>
@@ -200,7 +174,7 @@ PORTFOLIO SECTION
         <div class="col-md-3 col-sm-6">
             <div class="overlay-effect effects clearfix">
                 <div class="img">
-                    <a href="img/portfolio/portfolio-08-large.jpg" data-lightbox="roadtrip" title="Project Eight - Lorem Ipsum"><img class="grayscale" src="img/portfolio/portfolio-08-thumbnail.jpg" alt="Portfolio Item"></a>
+                    <a href="{{asset('public/frontend/img/portfolio/portfolio-08-large.jpg')}}" data-lightbox="roadtrip" title="Project Eight - Lorem Ipsum"><img class="grayscale" src="{{asset('public/frontend/img/portfolio/portfolio-08-thumbnail.jpg')}}" alt="Portfolio Item"></a>
                 </div>
             </div>
         </div>
@@ -217,7 +191,7 @@ PORTFOLIO SECTION END
 <!-- ==========================
 CUSTOM SPACER
 =========================== -->
-<div class="spacer-cta text-center">
+{{--<div class="spacer-cta text-center">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -228,7 +202,7 @@ CUSTOM SPACER
 </div>
 <!-- ==========================
 CUSTOM SPACER END
-=========================== -->
+=========================== -->--}}
 
 
 
@@ -253,7 +227,7 @@ CUSTOM SPACER END
                         <div class="col-md-4 wp4">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="img/blog1.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                                    <img src="{{asset('public/frontend/img/blog1.jpg')}}" class="grayscale" alt="Blog Item"><!-- Blog Image -->
                                 </div>
                             </div>
                             <br>
@@ -264,7 +238,7 @@ CUSTOM SPACER END
                         <div class="col-md-4 wp4 delay-05s">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="img/blog2.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                                    <img src="{{asset('public/frontend/img/blog2.jpg')}}" class="grayscale" alt="Blog Item"><!-- Blog Image -->
                                 </div>
                             </div>
                             <br>
@@ -275,7 +249,7 @@ CUSTOM SPACER END
                         <div class="col-md-4 wp4 delay-1s">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="img/blog3.jpg"  class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                                    <img src="{{asset('public/frontend/img/blog3.jpg')}}"  class="grayscale" alt="Blog Item"><!-- Blog Image -->
                                 </div>
                             </div>
                             <br>
@@ -288,7 +262,7 @@ CUSTOM SPACER END
                         <div class="col-md-4 wp4">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="img/blog1.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                                    <img src="{{asset('public/frontend/img/blog1.jpg')}}" class="grayscale" alt="Blog Item"><!-- Blog Image -->
                                 </div>
                             </div>
                             <br>
@@ -299,7 +273,7 @@ CUSTOM SPACER END
                         <div class="col-md-4 wp4 delay-05s">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="img/blog2.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                                    <img src="{{asset('public/frontend/img/blog2.jpg')}}" class="grayscale" alt="Blog Item"><!-- Blog Image -->
                                 </div>
                             </div>
                             <br>
@@ -310,7 +284,7 @@ CUSTOM SPACER END
                         <div class="col-md-4 wp4 delay-1s">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="img/blog3.jpg" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                                    <img src="{{asset('public/frontend/img/blog3.jpg')}}" class="grayscale" alt="Blog Item"><!-- Blog Image -->
                                 </div>
                             </div>
                             <br>

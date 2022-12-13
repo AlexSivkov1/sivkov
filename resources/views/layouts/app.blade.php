@@ -1,169 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Website Title -->
-    <title>John Doe - Professional web designer and photographer</title>
-    <!-- Bootstrap -->
-    <link href="{{asset('public/frontend/assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <!-- Font-Awesome -->
-    <link href="{{asset('public/frontend/assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-    <!-- Lightbox -->
-    <link href="{{asset('public/frontend/assets/lightbox/css/lightbox.css')}}" rel="stylesheet">
-    <!-- Text Rotator-->
-    <link href="{{asset('public/frontend/assets/textrotator/simpletextrotator.css')}}" rel="stylesheet">
-    <!-- FlexSlider -->
-    <link href="{{asset('public/frontend/assets/flexslider/flexslider.css')}}" rel="stylesheet">
-    <!-- Theme Style -->
-    <link href="{{asset('public/frontend/css/style.css')}}" rel="stylesheet">
-    <!-- Animations -->
-    <link href="{{asset('public/frontend/css/animate.css')}}" rel="stylesheet">
-    <!-- Custom Favicon -->
-    <link href="{{asset('public/frontend/img/favicon.ico')}}" rel="shortcut icon" type="image/x-icon" />
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
 
-    <![endif]-->
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Scripts -->
+    <script src="{{ asset('public/backend/js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
+
+    <!-- Styles -->
+    <link href="{{ asset('public/backend/css/app.css') }}" rel="stylesheet">
 </head>
-<body id="top">
-<div class="card-body">
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-</div>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-<!-- ****************************** Preloader ************************** -->
-{{--<div id="preloader"></div>--}}
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
 
+                    </ul>
 
-<!-- ==========================
-HEADER SECTION
-=========================== -->
-<header id="home">
-    <!-- creative menu -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="menu-wrap">
-                <nav class="menu">
-                    <!-- Menu Links -->
-                    <div class="icon-list">
-                        <a href="index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
-                        <a href="index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
-                        <a href="index.html#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a>
-                        <a href="index.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
-                        <a href="index.html#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a>
-                        <a href="index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
-                    </div>
-                </nav>
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
             </div>
-            <button class="menu-button" id="open-button"></button><!-- menu button -->
-        </div><!--/row-->
-    </div><!--/container-->
-    <!-- Header Image -->
+        </nav>
 
-</header>
-<!-- ==========================
-HEADER SECTION END
-=========================== -->
-
-
-
-<div class="container">
-    <div class="row row-offset-0">
-
-        @yield('content')
-        <!-- PORTFOLIO ITEM END -->
-    </div><!--/row-->
-</div><!--/.container-->
-
-<!-- ==========================
-FOOTER SECTION
-=========================== -->
-<footer>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center">
-                <p>All Rights Reserved. &copy; 2015 <a href="http://www.themewagon.com">ThemeWagon</a>
-            </div>
-        </div>
+        <main class="py-4">
+            @yield('content')
+        </main>
     </div>
-</footer>
-<!-- ==========================
-FOOTER SECTION END
-=========================== -->
-
-
-<!-- jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!-- SmoothScroll -->
-<script type="text/javascript" src="{{asset('public/frontend/assets/smoothscroll/smoothscroll.js')}}"></script>
-<!-- Bootstrap -->
-<script src="{{asset('public/frontend/assets/bootstrap/js/bootstrap.min.js')}}"></script>
-<!-- Waypoints -->
-<script src="{{asset('public/frontend/js/waypoints.min.js')}}"></script>
-<!-- classie.js -->
-<script src="{{asset('public/frontend/js/classie.js')}}"></script>
-<!-- FlexSlider -->
-<script src="{{asset('public/frontend/assets/flexslider/jquery.flexslider.js')}}"></script>
-<!-- Modernizr -->
-<script src="{{asset('public/frontend/js/modernizr.js')}}"></script>
-<!-- Text Rotator -->
-<script src="{{asset('public/frontend/assets/textrotator/jquery.simple-text-rotator.js')}}"></script>
-<!-- Lightbox.js -->
-<script src="{{asset('public/frontend/assets/lightbox/js/lightbox.min.js')}}"></script>
-<!-- Google Maps -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeKBBPJTG3v5w3cNPAgM6ZsJiPyL1mP_o&amp;sensor=false"></script>
-<!-- Theme JavaScript Core -->
-<script src="{{asset('public/frontend/js/main.js')}}"></script>
-<script src="{{asset('public/frontend/js/script.js')}}"></script>
-<script src="{{asset('public/frontend/assets/html5shiv/html5shiv.js')}}"></script>
-<script src="{{asset('public/frontend/assets/respond/respond.min.js')}}"></script>
-
-<!-- GOOGLE MAPS DATA -->
-<script type="text/javascript">
-    // When the window has finished loading create our google map below
-    google.maps.event.addDomListener(window, 'load', init);
-
-    function init() {
-        // Basic options for a simple Google Map
-        // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
-        var mapOptions = {
-            // How zoomed in you want the map to start at (always required)
-            zoom: 15,
-
-            scrollwheel: false,
-
-            // The latitude and longitude to center the map (always required)
-            center: new google.maps.LatLng(40.68961985411178, -74.01618003845215), // New York
-
-            // How you would like to style the map.
-            // This is where you would paste any style found on Snazzy Maps.
-            styles: [	{		featureType:'water',		stylers:[{color:'#F2F2F2'},{visibility:'on'}]	},{		featureType:'landscape',		stylers:[{color:'#FFFFFF'}]	},{		featureType:'road',		stylers:[{saturation:-100},{lightness:45}]	},{		featureType:'road.highway',		stylers:[{visibility:'simplified'}]	},{		featureType:'road.arterial',		elementType:'labels.icon',		stylers:[{visibility:'off'}]	},{		featureType:'administrative',		elementType:'labels.text.fill',		stylers:[{color:'#ADADAD'}]	},{		featureType:'transit',		stylers:[{visibility:'off'}]	},{		featureType:'poi',		stylers:[{visibility:'off'}]	}]
-        };
-
-        // Get the HTML DOM element that will contain your map
-        // We are using a div with id="map" seen below in the <body>
-        var mapElement = document.getElementById('googlemaps');
-
-        // Create the Google Map using out element and options defined above
-        var map = new google.maps.Map(mapElement, mapOptions);
-    }
-
-</script>
-
-<!-- TEXT ROTATOR SETTINGS -->
-<script type="text/javascript">
-    $(".rotate").textrotator({
-        animation: "fade", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
-        separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
-        speed: 2000 // How many milliseconds until the next word show.
-    });
-</script>
-
 </body>
 </html>
