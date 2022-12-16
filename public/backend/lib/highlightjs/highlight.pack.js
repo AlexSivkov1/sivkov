@@ -6143,7 +6143,7 @@ hljs.registerLanguage('fortran', function(hljs) {
       'log10 max min nint sign sin sinh sqrt tan tanh print write dim lge lgt lle llt mod nullify allocate deallocate ' +
       'adjustl adjustr all allocated any associated bit_size btest ceiling count cshift date_and_time digits dot_product ' +
       'eoshift epsilon exponent floor fraction huge iand ibclr ibits ibset ieor ior ishft ishftc lbound len_trim matmul ' +
-      'maxexponent maxloc maxval merge minexponent minloc minval modulo mvbits nearest pack present product ' +
+      'maxexponent maxloc maxval merge minexponent minloc minval modulo mvbits nearest pack present post ' +
       'radix random_number random_seed range repeat reshape rrspacing scale scan selected_int_kind selected_real_kind ' +
       'set_exponent shape size spacing spread sum system_clock tiny transpose trim ubound unpack verify achar iachar transfer ' +
       'dble entry dprod cpu_time command_argument_count get_command get_command_argument get_environment_variable is_iostat_end ' +
@@ -7602,7 +7602,7 @@ hljs.registerLanguage('hy', function(hljs) {
       'map max merge-with method-decorator min multi-decorator multicombinations name neg? next ' +
       'none? nonlocal not not-in not? nth numeric? oct odd? open ' +
       'or ord partition permutations pos? post_image-route postwalk pow prewalk print ' +
-      'product profile/calls profile/cpu put-route quasiquote quote raise range read read-str ' +
+      'post profile/calls profile/cpu put-route quasiquote quote raise range read read-str ' +
       'recursive-replace reduce remove repeat repeatedly repr require rest round route ' +
       'route-with-methods rwm second seq set-comp setattr setv some sorted string ' +
       'string? sum switch symbol? take take-nth take-while tee try unless ' +
@@ -7839,7 +7839,7 @@ hljs.registerLanguage('irpf90', function(hljs) {
       'log10 max min nint sign sin sinh sqrt tan tanh print write dim lge lgt lle llt mod nullify allocate deallocate ' +
       'adjustl adjustr all allocated any associated bit_size btest ceiling count cshift date_and_time digits dot_product ' +
       'eoshift epsilon exponent floor fraction huge iand ibclr ibits ibset ieor ior ishft ishftc lbound len_trim matmul ' +
-      'maxexponent maxloc maxval merge minexponent minloc minval modulo mvbits nearest pack present product ' +
+      'maxexponent maxloc maxval merge minexponent minloc minval modulo mvbits nearest pack present post ' +
       'radix random_number random_seed range repeat reshape rrspacing scale scan selected_int_kind selected_real_kind ' +
       'set_exponent shape size spacing spread sum system_clock tiny transpose trim ubound unpack verify achar iachar transfer ' +
       'dble entry dprod cpu_time command_argument_count get_command get_command_argument get_environment_variable is_iostat_end ' +
@@ -10010,7 +10010,7 @@ hljs.registerLanguage('maxima', function(hljs) {
       + ' poly_pseudo_divide poly_reduced_grobner poly_reduction poly_saturation_extension'
       + ' poly_s_polynomial poly_subtract polytocompanion pop postfix potential power_mod'
       + ' powerseries powerset prefix prev_prime primep primes principal_components'
-      + ' print printf printfile print_graph printpois printprops prodrac product properties'
+      + ' print printf printfile print_graph printpois printprops prodrac post properties'
       + ' propvars psi psubst ptriangularize pui pui2comp pui2ele pui2polynome pui_direct'
       + ' puireduc push put pv qput qrange qty quad_control quad_qag quad_qagi quad_qagp'
       + ' quad_qags quad_qawc quad_qawf quad_qawo quad_qaws quadrilateral quantile'

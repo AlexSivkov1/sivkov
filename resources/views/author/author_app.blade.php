@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Website Title -->
     <title>John Doe - Professional web designer and photographer</title>
+
     <!-- Bootstrap -->
     <link href="{{asset('public/frontend/assets/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <!-- Font-Awesome -->
@@ -25,6 +26,8 @@
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 
     <![endif]-->
 </head>
@@ -48,16 +51,45 @@ HEADER SECTION
     <!-- creative menu -->
     <div class="container-fluid">
         <div class="row">
+
             <div class="menu-wrap">
+
                 <nav class="menu">
+
+
                     <!-- Menu Links -->
                     <div class="icon-list">
+
                         <a href="index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
                         <a href="index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
                         <a href="index.html#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a>
                         <a href="index.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
                         <a href="index.html#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a>
                         <a href="index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
+
+                        <!-- Authentication Links -->
+                            @guest
+
+                <a href="{{ route('login') }}"><i class="fa fa-fw fa-sign-in" aria-hidden="true"></i><span>{{ __('Login') }}</span></a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"><i class="fa fa-fw fa fa-plus-square"></i><span>{{ __('Register') }}</span></a>
+                            @endif
+
+
+                            @else
+                                        <a href="index.html#home"><i class="fa fa-fw fa-user"></i><span> {{ Auth::user()->name }}</span></a>
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();" ><i class="fa fa-fw fa-sign-out"></i><span>{{ __('Logout') }}</span>
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+
+                            @endguest
+
+                        </a>
+
                     </div>
                 </nav>
             </div>
@@ -163,6 +195,27 @@ FOOTER SECTION END
         separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
         speed: 2000 // How many milliseconds until the next word show.
     });
+</script>
+
+
+<script>
+            @if(Session::has('messege'))
+    var type = "{{Session::get('alert-type','info')}}";
+    switch (type) {
+        case 'info':
+            toastr.info("{{ Session::get('messege') }}");
+            break;
+        case 'success':
+            toastr.success("{{ Session::get('messege') }}");
+            break;
+        case 'warning':
+            toastr.warning("{{ Session::get('messege') }}");
+            break;
+        case 'error':
+            toastr.error("{{ Session::get('messege') }}");
+            break;
+    }
+    @endif
 </script>
 
 </body>

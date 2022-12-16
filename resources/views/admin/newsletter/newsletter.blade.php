@@ -22,7 +22,7 @@
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>
                         <tr>
-                            <th class="wd-15p">ID</th>
+                            <th class="wd-5p">ID</th>
                             <th class="wd-15p">Email</th>
                             <th class="wd-15p">Subscribing Time</th>
                             <th class="wd-20p">Action</th>
@@ -30,15 +30,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($sub as $key=>$row)
+                        @foreach($newsletters as $key=>$row)
                             <tr>
-                                <td><input type="checkbox" name="email">
-                                    
-                                    {{$key +1}}</td>
+                                <td>{{$key +1}}</td>
                                 <td>{{ $row->email }}</td>
                                 <td>{{ \Carbon\Carbon::parse($row->created_at)->diffForHumans()  }}</td>
                                 <td>
-                                    <a href="{{URL::to('delete/sub/'. $row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a></td>
+                                    <a href="{{--{{URL::to('delete/sub/'. $row->id)}}--}}" class="btn btn-sm btn-danger" id="delete">Delete</a></td>
 
                             </tr>
                         @endforeach
@@ -76,7 +74,7 @@
                 @endif
 
 
-                <form method="post" action="{{route('store.newsletter')}}">
+                <form method="post" action="{{--{{route('store.newsletter')}}--}}">
                     @csrf
                     <div class="modal-body pd-20">
                         <div class="form-group">

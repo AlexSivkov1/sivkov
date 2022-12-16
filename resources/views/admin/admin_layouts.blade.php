@@ -66,7 +66,7 @@
 
 
     <div class="sl-sideleft-menu">
-        <a href="{{url('admin/home')}}" class="sl-menu-link active">
+        <a href="{{route('admin.dashboard')}}" class="sl-menu-link active">
             <div class="sl-menu-item">
                 <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
                 <span class="menu-item-label">Dashboard</span>
@@ -116,8 +116,8 @@
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-            <li class="nav-item"><a href="{{--{{route('add.product')}}--}}" class="nav-link">Add Posts</a></li>
-            <li class="nav-item"><a href="{{--{{route('all.product')}}--}}" class="nav-link">All Posts</a></li>
+            <li class="nav-item"><a href="{{route('admin.add.post')}}" class="nav-link">Add Post</a></li>
+            <li class="nav-item"><a href="{{route('admin.posts')}}" class="nav-link">All Posts</a></li>
         </ul>
         {{--@else--}}
         {{--@endif--}}
@@ -163,7 +163,7 @@
             </div><!-- menu-item -->
         </a><!-- sl-menu-link -->
         <ul class="sl-menu-sub nav flex-column">
-            <li class="nav-item"><a href="{{--{{route('admin.newsletter')}}--}}" class="nav-link">Newsletters</a></li>
+            <li class="nav-item"><a href="{{route('admin.newsletter')}}" class="nav-link">Subscribers</a></li>
             <li class="nav-item"><a href="{{--{{route('admin.seo')}}--}}" class="nav-link">SEO Setting</a></li>
         </ul>
 {{--@else--}}
@@ -559,18 +559,6 @@
 </script>
 
 
-<script>
-    $(function(){
-        'use strict';
-        // Inline editor
-        var editor = new MediumEditor('.editable');
-        // Summernote editor
-        $('#summernote1').summernote({
-            height: 150,
-            tooltip: false
-        })
-    });
-</script>
 
 <script src="{{asset('public/backend/js/starlight.js')}}"></script>
 <script src="{{asset('public/backend/js/ResizeSensor.js')}}"></script>

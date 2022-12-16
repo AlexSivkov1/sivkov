@@ -340,9 +340,10 @@ NEWSLETTER SECTION
     <div class="container-fluid">
         <div class="row color-bg">
             <div class="col-md-6 nopadding subscribe text-center">
-                <h1><i class="fa fa-paper-plane"></i><span>Subscribe our Newsletter</span></h1><!-- Heading -->
-                <form action="index.html#">
-                    <input type="text" name="" value="" placeholder="" required><!-- E-Mail -->
+                <h1><i class="fa fa-paper-plane"></i><span>Subscribe, please</span></h1><!-- Heading -->
+                <form action="{{route('author.store.newsletter')}}" method="post">
+                    @csrf
+                    <input type="email" name="email" placeholder="Paste Your Email" required><!-- E-Mail -->
                     <input type="submit" name="" value="Send"><!-- Submit Button -->
                 </form>
             </div>
