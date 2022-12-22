@@ -154,7 +154,7 @@
                     $('#one')
                         .attr('src', e.target.result)
                         .width(80)
-                        .height(80);
+                        .height(100);
                 };
                 reader.readAsDataURL(input.files[0]);
             }

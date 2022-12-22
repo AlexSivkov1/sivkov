@@ -23,8 +23,7 @@
                         <thead>
                         <tr>
                             <th class="wd-15p">ID</th>
-                            <th class="wd-15p">Category Name En</th>
-                            <th class="wd-15p">Category Name Ru</th>
+                            <th class="wd-15p">Category Name</th>
                             <th class="wd-20p">Action</th>
 
                         </tr>
@@ -33,10 +32,9 @@
                         @foreach($blogcat as $key => $row)
                             <tr>
                                 <td>{{$key +1}}</td>
-                                <td>{{ $row->category_name_en }}</td>
-                                <td>{{ $row->category_name_ru }}</td>
-                                <td><a href="{{URL::to('edit/blogcategory/'. $row->id)}}" class="btn btn-sm btn-info">Edit</a>
-                        <a href="{{URL::to('delete/blogcategory/'. $row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a></td>
+                                <td>{{ $row->category_name}}</td>
+                                <td><a href="{{URL::to('admin/edit/blogcategory/'. $row->id)}}" class="btn btn-sm btn-info">Edit</a>
+                        <a href="{{URL::to('admin/delete/blogcategory/'. $row->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a></td>
                             </tr>
                         @endforeach
 
@@ -73,18 +71,14 @@
                 @endif
 
 
-                <form method="post" action="{{route('store.blog.category')}}">
+                <form method="post" action="{{route('admin.store.blog.category')}}">
                     @csrf
                     <div class="modal-body pd-20">
+
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Category Name English</label>
+                            <label for="exampleInputEmail1">Category Name</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                   placeholder="Category" name="category_name_en">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Category Name Russian</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                   placeholder="Category" name="category_name_ru">
+                                   placeholder="Category Name" name="category_name">
                         </div>
                     </div><!-- modal-body -->
                     <div class="modal-footer">

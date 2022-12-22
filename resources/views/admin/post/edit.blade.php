@@ -125,7 +125,7 @@
                         </div>
 
                         <div class="col-lg-6 col-sm-6">
-                            <img src="{{URL::to($post->image)}}"  style="width: 80px; height: 80px">
+                            <a href="{{URL::to($post->image)}}"><img src="{{URL::to($post->image)}}"  style="width: 80px; height: 100px"></a>
                         </div>
                     </div><!-- row -->
 
@@ -179,7 +179,7 @@
                     $('#one')
                         .attr('src', e.target.result)
                         .width(80)
-                        .height(80);
+                        .height(100);
                 };
                 reader.readAsDataURL(input.files[0]);
             }

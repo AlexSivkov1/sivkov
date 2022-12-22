@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $bposts = DB::table('blogposts')->limit(3)->get();
+        $posts = DB::table('posts')
+            ->join('categories', 'posts.category_id', 'categories.id')
+            ->select('posts.*', 'categories.category_name')
+            ->limit(8)
+            ->get();
+
+        return view('author.dashboard', compact('posts', 'bposts'));
     }
 }

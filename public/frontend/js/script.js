@@ -82,29 +82,32 @@ Flexsliders
 
 $(window).load(function() {
 
+
+
+
 	$('#blogSlider').flexslider({
 		animation: "slide",
-		directionNav: false,
-		controlNav: true,
+		controlNav: false,
 		touch: false,
 		pauseOnHover: true,
+        animationLoop:false,
+        slideshow:false,
+
+
+
+
+
+
+
 		start: function() {
 			$.waypoints('refresh');
 		}
 	});
 
-	$('#servicesSlider').flexslider({
-		animation: "slide",
-		directionNav: false,
-		controlNav: true,
-		touch: true,
-		pauseOnHover: true,
-		start: function() {
-			$.waypoints('refresh');
-		}
-	});
 
-	$('#teamSlider').flexslider({
+
+
+    $('#teamSlider').flexslider({
 		animation: "slide",
 		directionNav: false,
 		controlNav: true,
@@ -125,6 +128,16 @@ $(window).load(function() {
 			$.waypoints('refresh');
 		}
 	});
+
+
+
+
+
+
+
+
+
+
 
 });
 

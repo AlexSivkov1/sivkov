@@ -57,13 +57,15 @@
                                         <span class="badge badge-danger">No</span>
                             @endif
                                 </td>
-                                <td><img src="{{ URL::to($item->image) }}" height="50px;" width="50px;" alt=""></td>
+                                <td><a href="{{URL::to($item->image)}}"><img src="{{ URL::to($item->image) }}" width="40px;"  height="50px; " alt=""></a></td>
                                 <td>{{ $item->category_name}}</td>
 
 
         <td><a href="{{URL::to('admin/post/edit/'. $item->id)}}" class="btn btn-sm btn-info" title="Edit"><i class="fa fa-edit"></i></a>
 
                 <a href="{{URL::to('admin/post/delete/'. $item->id)}}" class="btn btn-sm btn-danger" title="Delete" id="delete"> <i class="fa fa-trash"></i></a>
+
+
 
           {{--      <a href="--}}{{--{{URL::to('view/product/'. $item->id)}}--}}{{--" class="btn btn-sm btn-warning" title="Show"><i class="fa fa-eye"></i></a>--}}
 
@@ -80,16 +82,43 @@
         </td>
 
                             </tr>
+
                         @endforeach
-
                         </tbody>
-                    </table>
-                </div><!-- table-wrapper -->
 
+
+
+
+                    </table>
+
+
+
+
+                </div><!-- table-wrapper -->
             </div>
         </div>
-
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
+
+
+
 
 

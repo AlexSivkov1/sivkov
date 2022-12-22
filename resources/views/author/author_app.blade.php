@@ -31,7 +31,7 @@
 
     <![endif]-->
 </head>
-<body id="top">
+<body id="top" style="background:url('{{asset('public/frontend/img/bg3.jpg')}}')">
 <div class="card-body">
     @if (session('status'))
         <div class="alert alert-success" role="alert">
@@ -47,6 +47,8 @@
 <!-- ==========================
 HEADER SECTION
 =========================== -->
+
+
 <header id="home">
     <!-- creative menu -->
     <div class="container-fluid">
@@ -60,35 +62,45 @@ HEADER SECTION
                     <!-- Menu Links -->
                     <div class="icon-list">
 
-                        <a href="index.html#home"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
-                        <a href="index.html#about"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
-                        <a href="index.html#service"><i class="fa fa-fw fa-globe"></i><span>Service</span></a>
-                        <a href="index.html#portfolio"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
-                        <a href="index.html#blog"><i class="fa fa-fw fa-rss"></i><span>Blog</span></a>
-                        <a href="index.html#contact"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
+                        <a href="{{url('/')}}"><i class="fa fa-fw fa-home"></i><span>Home</span></a>
+                        <a href="{{url('/#about')}}"><i class="fa fa-fw fa-quote-left"></i><span>About</span></a>
+                        <a href="{{url('/#portfolio')}}"><i class="fa fa-fw fa-picture-o"></i><span>Portfolio</span></a>
+
+                         <a href="{{url('/#blog') }}"> <i class="fa fa-fw fa-rss"></i><span>Blog</span></a>
+                        <a href="{{url('/#contact')}}"><i class="fa fa-fw fa-envelope-o"></i><span>Contact</span></a>
 
                         <!-- Authentication Links -->
-                            @guest
+                @if(auth()->guest())
+                                <a href="{{ route('login') }}"><i class="fa fa-fw fa-sign-in" aria-hidden="true"></i><span>{{ __('Login') }}</span></a>
 
-                <a href="{{ route('login') }}"><i class="fa fa-fw fa-sign-in" aria-hidden="true"></i><span>{{ __('Login') }}</span></a>
-                            @if (Route::has('register'))
+
+                              (Route::has('register'))
                                 <a href="{{ route('register') }}"><i class="fa fa-fw fa fa-plus-square"></i><span>{{ __('Register') }}</span></a>
-                            @endif
 
 
-                            @else
-                                        <a href="index.html#home"><i class="fa fa-fw fa-user"></i><span> {{ Auth::user()->name }}</span></a>
-                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+
+                @elseif (Auth::check() && Auth::user()->role->id == 2)
+                                    <a href="###"><i class="fa fa-fw fa-user"></i><span> {{ Auth::user()->name }}</span></a>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();" ><i class="fa fa-fw fa-sign-out"></i><span>{{ __('Logout') }}</span>
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                            @csrf
-                                        </form>
+                @else
+                            <a href="{{route('admin.dashboard')}}"><i class="fa fa-fw fa-user"></i><span> {{ Auth::user()->name }}</span></a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();" ><i class="fa fa-fw fa-sign-out"></i><span>{{ __('Logout') }}</span>
+                            </a>
 
-                            @endguest
 
-                        </a>
+
+
+                @endif
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+
+
+
 
                     </div>
                 </nav>
@@ -113,6 +125,77 @@ HEADER SECTION END
     </div><!--/row-->
 </div><!--/.container-->
 
+<section>
+    <div class="container-fluid">
+        <div class="row color-bg">
+            <div class="col-md-6 nopadding subscribe text-center">
+                <h1><i class="fa fa-paper-plane"></i><span>Subscribe, please</span></h1><!-- Heading -->
+                <form action="{{route('author.store.newsletter')}}" method="post">
+                    @csrf
+                    <input type="email" name="email" placeholder="Paste Your Email" required><!-- E-Mail -->
+                    <input type="submit" name="" value="Send"><!-- Submit Button -->
+                </form>
+            </div>
+            <div class="col-md-6 nopadding features-intro-img">
+                <div class="about-image" style="background-image:url({{asset('public/frontend/img/newsletter.png')}})"></div><!-- Right Image -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="text-center section-padding contact-wrap" id="contact">
+    <!-- To Top Button -->
+    <a href="index.html#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
+    <div class="container">
+        <!-- Headline -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="arrow">Drop <span>me</span> a line</h1>
+            </div>
+        </div>
+        <div class="row contact-details">
+            <!-- Adress Box -->
+            <div class="col-md-4">
+                <div class="dark-box box-hover">
+                    <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
+                    <p>23 Ipsum street, New York</p>
+                </div>
+            </div>
+            <!-- Phone Number Box -->
+            <div class="col-md-4">
+                <div class="dark-box box-hover">
+                    <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
+                    <p>+12 345 6789</p>
+                </div>
+            </div>
+            <!-- E-Mail Box -->
+            <div class="col-md-4">
+                <div class="dark-box box-hover">
+                    <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
+                    <p><a href="index.html#">info@themewagon.com</a></p>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <!-- Social Buttons - use font-awesome, past in what you want -->
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="social-buttons">
+                    <li><a href="index.html#" class="social-btn"><i class="fa fa-dribbble"></i></a></li><!-- dribble -->
+                    <li><a href="index.html#" class="social-btn"><i class="fa fa-twitter"></i></a></li><!-- twitter -->
+                    <li><a href="index.html#" class="social-btn"><i class="fa fa-facebook"></i></a></li><!-- facebook -->
+                    <li><a href="index.html#" class="social-btn"><i class="fa fa-deviantart"></i></a></li><!-- deviantart -->
+                    <li><a href="index.html#" class="social-btn"><i class="fa fa-youtube"></i></a></li><!-- youtube -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
 <!-- ==========================
 FOOTER SECTION
 =========================== -->
@@ -128,7 +211,7 @@ FOOTER SECTION
 <!-- ==========================
 FOOTER SECTION END
 =========================== -->
-
+</body>
 
 <!-- jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

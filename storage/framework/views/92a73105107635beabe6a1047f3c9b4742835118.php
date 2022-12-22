@@ -41,11 +41,13 @@ HEADER SECTION
 =========================== -->
 
 
-    <div class="container-fluid">
+<section id="about">
+
+
         <!-- About 1 -->
         <div class="row color-bg">
             <div class="col-md-6 nopadding features-intro-img">
-                <div class="about-image" style="background-image:url(img/about1.png)"></div><!-- about image 1 -->
+                <div class="about-image" style="background-image:url(<?php echo e(asset('public/frontend/img/about1.png')); ?>)"></div><!-- about image 1 -->
             </div>
             <div class="col-md-6 about-text">
                 <h6>High quality webdesign</h6><!-- headline-->
@@ -55,6 +57,7 @@ HEADER SECTION
         </div>
         <!-- About 2 -->
         <div class="row">
+
             <div class="col-md-6 about-text">
                 <h6>Professional Photography</h6><!-- Headline -->
                 <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.</p><br><!-- About Text 2 -->
@@ -67,7 +70,7 @@ HEADER SECTION
         <!-- About 3 -->
         <div class="row color-bg">
             <div class="col-md-6 nopadding features-intro-img">
-                <div class="about-image" style="background-image:url(img/about3.png)"></div><!-- about image 3 -->
+                <div class="about-image" style="background-image:url(<?php echo e(asset('public/frontend/img/about3.png')); ?>)"></div><!-- about image 3 -->
             </div>
             <div class="col-md-6 about-text">
                 <h6>3d modeling and animations</h6><!-- Headline-->
@@ -77,7 +80,8 @@ HEADER SECTION
         </div>
 
 
-    </div>
+
+
 
     <!-- ==========================
     ABOUT SECTION END
@@ -92,6 +96,9 @@ PORTFOLIO SECTION
         <div class="row">
             <h1 class="arrow">
                 Recent <span>Porojects</span>
+                <a href="<?php echo e(route('to_all_posts')); ?>">
+                    <p>SEE MORE</p>
+                </a>
             </h1>
         </div>
     </div>
@@ -101,103 +108,26 @@ PORTFOLIO SECTION
     <div class="row row-offset-0">
 
         <!-- PORTFOLIO ITEM 1 -->
+        <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <div class="col-md-3 col-sm-6">
             <div class="overlay-effect effects clearfix">
-                <div class="img">
-                    <a href="<?php echo e(asset('public/frontend/img/portfolio/portfolio-01-large.jpg')); ?>" data-lightbox="roadtrip" title="Project One - Lorem Ipsum"><img class="grayscale" src="<?php echo e(asset('public/frontend/img/portfolio/portfolio-01-thumbnail.jpg')); ?>" alt="Portfolio Item"></a>
-                </div>
-            </div>
-        </div>
-        <!-- PORTFOLIO ITEM END -->
+                <div class="img" style="height:540px ">
+<?php if($item->main_project_post == 1): ?>
+                    <a href="<?php echo e($item->image); ?>" data-lightbox="roadtrip" title="<?php echo e($item->post_name); ?>">
+                    <img class="grayscale" style="width: 400px" height="534px"
+                     src="<?php echo e($item->image); ?>" alt="<?php echo e($item->post_name); ?>"></a>
 
-        <!-- PORTFOLIO ITEM 2 -->
-        <div class="col-md-3 col-sm-6">
-            <div class="overlay-effect effects clearfix">
-                <div class="img">
-                    <a href="<?php echo e(asset('public/frontend/img/portfolio/portfolio-02-large.jpg')); ?>" data-lightbox="roadtrip" title="Project Two - Lorem Ipsum"><img class="grayscale" src="<?php echo e(asset('public/frontend/img/portfolio/portfolio-02-thumbnail.jpg')); ?>" alt="Portfolio Item"></a>
-                </div>
-            </div>
-        </div>
-        <!-- PORTFOLIO ITEM END -->
+<?php endif; ?>
 
-        <!-- PORTFOLIO ITEM 3 -->
-        <div class="col-md-3 col-sm-6">
-            <div class="overlay-effect effects clearfix">
-                <div class="img">
-                    <a href="<?php echo e(asset('public/frontend/img/portfolio/portfolio-03-large.jpg')); ?>" data-lightbox="roadtrip" title="Project Three - Lorem Ipsum"><img class="grayscale" src="<?php echo e(asset('public/frontend/img/portfolio/portfolio-03-thumbnail.jpg')); ?>" alt="Portfolio Item"></a>
                 </div>
             </div>
         </div>
-        <!-- PORTFOLIO ITEM END -->
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-        <!-- PORTFOLIO ITEM 4 -->
-        <div class="col-md-3 col-sm-6 ">
-            <div class="overlay-effect effects clearfix">
-                <div class="img">
-                    <a href="<?php echo e(asset('public/frontend/img/portfolio/portfolio-04-large.jpg')); ?>" data-lightbox="roadtrip" title="Project Four - Lorem Ipsum"><img class="grayscale" src="<?php echo e(asset('public/frontend/img/portfolio/portfolio-04-thumbnail.jpg')); ?>" alt="Portfolio Item"></a>
-                </div>
-            </div>
-        </div>
-        <!-- PORTFOLIO ITEM END -->
-
-        <!-- PORTFOLIO ITEM 5 -->
-        <div class="col-md-3 col-sm-6 ">
-            <div class="overlay-effect effects clearfix">
-                <div class="img">
-                    <a href="<?php echo e(asset('public/frontend/img/portfolio/portfolio-05-large.jpg')); ?>" data-lightbox="roadtrip" title="Project Five - Lorem Ipsum"><img class="grayscale" src="<?php echo e(asset('public/frontend/img/portfolio/portfolio-05-thumbnail.jpg')); ?>" alt="Portfolio Item"></a>
-                </div>
-            </div>
-        </div>
-        <!-- PORTFOLIO ITEM END -->
-
-        <!-- PORTFOLIO ITEM 6 -->
-        <div class="col-md-3 col-sm-6">
-            <div class="overlay-effect effects clearfix">
-                <div class="img">
-                    <a href="<?php echo e(asset('public/frontend/img/portfolio/portfolio-06-large.jpg')); ?>" data-lightbox="roadtrip" title="Project Six - Lorem Ipsum"><img class="grayscale" src="<?php echo e(asset('public/frontend/img/portfolio/portfolio-06-thumbnail.jpg')); ?>" alt="Portfolio Item"></a>
-                </div>
-            </div>
-        </div>
-        <!-- PORTFOLIO ITEM END -->
-
-        <!-- PORTFOLIO ITEM 7 -->
-        <div class="col-md-3 col-sm-6">
-            <div class="overlay-effect effects clearfix">
-                <div class="img">
-                    <a href="<?php echo e(asset('public/frontend/img/portfolio/portfolio-07-large.jpg')); ?>" data-lightbox="roadtrip" title="Project Seven - Lorem Ipsum"><img class="grayscale" src="<?php echo e(asset('public/frontend/img/portfolio/portfolio-07-thumbnail.jpg')); ?>" alt="Portfolio Item"></a>
-                </div>
-            </div>
-        </div>
-        <!-- PORTFOLIO ITEM END -->
-
-        <!-- PORTFOLIO ITEM 8 -->
-        <div class="col-md-3 col-sm-6">
-            <div class="overlay-effect effects clearfix">
-                <div class="img">
-                    <a href="<?php echo e(asset('public/frontend/img/portfolio/portfolio-08-large.jpg')); ?>" data-lightbox="roadtrip" title="Project Eight - Lorem Ipsum"><img class="grayscale" src="<?php echo e(asset('public/frontend/img/portfolio/portfolio-08-thumbnail.jpg')); ?>" alt="Portfolio Item"></a>
-                </div>
-            </div>
-        </div>
-        <!-- PORTFOLIO ITEM END -->
     </div><!--/row-->
 </div><!--/.container-->
-<!-- ==========================
-PORTFOLIO SECTION END
-=========================== -->
 
 
-
-
-<!-- ==========================
-CUSTOM SPACER
-=========================== -->
-
-
-
-
-<!-- ==========================
-    BLOG SECTION
-    =========================== -->
 <section class="text-center section-padding" id="blog">
     <div class="container">
         <!-- Headline -->
@@ -209,199 +139,34 @@ CUSTOM SPACER
 
         <!-- Blog Slider -->
         <div class="row">
-            <div id="blogSlider">
                 <ul class="slides">
                     <li>
                         <!-- Blog Entry 1 -->
-                        <div class="col-md-4 wp4">
-                            <div class="overlay-effect effects clearfix">
+                        <?php $__currentLoopData = $bposts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                        <div class="col-md-4"  >
+
                                 <div class="img">
-                                    <img src="<?php echo e(asset('public/frontend/img/blog1.jpg')); ?>" class="grayscale" alt="Blog Item"><!-- Blog Image -->
+                                    <img src="<?php echo e($item->post_image); ?>" class="grayscale" style="width: 350px" height="250px"                                                alt="<?php echo e($item->post_title); ?>"><!-- Blog Image -->
                                 </div>
-                            </div>
                             <br>
-                            <h2>Creative Minds</h2><!-- Headline -->
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p><!-- Description-->
-                        </div>
-                        <!-- Blog Entry 2 -->
-                        <div class="col-md-4 wp4 delay-05s">
-                            <div class="overlay-effect effects clearfix">
-                                <div class="img">
-                                    <img src="<?php echo e(asset('public/frontend/img/blog2.jpg')); ?>" class="grayscale" alt="Blog Item"><!-- Blog Image -->
-                                </div>
-                            </div>
+
+                            <h2><?php echo e($item->post_title); ?></h2><!-- Headline -->
+                            <p><?php echo $item->details; ?></p><!-- Description-->
                             <br>
-                            <h2>Creative Hearts</h2><!-- Headline -->
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p><!-- Description -->
+
                         </div>
-                        <!-- Blog Entry 3 -->
-                        <div class="col-md-4 wp4 delay-1s">
-                            <div class="overlay-effect effects clearfix">
-                                <div class="img">
-                                    <img src="<?php echo e(asset('public/frontend/img/blog3.jpg')); ?>"  class="grayscale" alt="Blog Item"><!-- Blog Image -->
-                                </div>
-                            </div>
-                            <br>
-                            <h2>Creative Ideas</h2><!-- Headline -->
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p><!-- Description-->
-                        </div>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </li>
+                    <br>
                     <li>
-                        <!-- Blog Entry 4 -->
-                        <div class="col-md-4 wp4">
-                            <div class="overlay-effect effects clearfix">
-                                <div class="img">
-                                    <img src="<?php echo e(asset('public/frontend/img/blog1.jpg')); ?>" class="grayscale" alt="Blog Item"><!-- Blog Image -->
-                                </div>
-                            </div>
-                            <br>
-                            <h2>Creative Minds</h2><!-- Headline -->
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p><!-- Description -->
-                        </div>
-                        <!-- Blog Entry 5 -->
-                        <div class="col-md-4 wp4 delay-05s">
-                            <div class="overlay-effect effects clearfix">
-                                <div class="img">
-                                    <img src="<?php echo e(asset('public/frontend/img/blog2.jpg')); ?>" class="grayscale" alt="Blog Item"><!-- Blog Image -->
-                                </div>
-                            </div>
-                            <br>
-                            <h2>Creative Hearts</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        </div>
-                        <!-- Blog Entry 6 -->
-                        <div class="col-md-4 wp4 delay-1s">
-                            <div class="overlay-effect effects clearfix">
-                                <div class="img">
-                                    <img src="<?php echo e(asset('public/frontend/img/blog3.jpg')); ?>" class="grayscale" alt="Blog Item"><!-- Blog Image -->
-                                </div>
-                            </div>
-                            <br>
-                            <h2>Creative Ideas</h2><!-- Headline -->
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p><!-- Description -->
-                        </div>
                     </li>
                 </ul>
             </div>
         </div>
-    </div>
+
+
 </section>
-<!-- ==========================
-    BLOG SECTION END
-    =========================== -->
-
-
-
-<!-- ==========================
-CLIENT SECTION
-=========================== -->
-<div class="container-fluid">
-    <div class="row color-bg">
-        <!-- Left Image -->
-        <div class="col-md-6 nopadding features-intro-img wow fadeInLeft">
-            <div class="about-image" style="background-image:url(img/clients.png)"></div>
-        </div>
-        <!-- Clients / Testimonials -->
-        <div class="col-md-6 nopadding about-text">
-            <h6>What our clients said</h6>
-            <div id="clientSlider">
-                <ul class="slides">
-                    <li><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br>	<small>- Pete Rock, A New Tomorrow</small></p></li>
-                    <li><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br>	<small>- Michael Snowden, Creativeland CEO</small></p></li>
-                    <li><p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. <br>	<small>- Tom Davis, GreenWonder</small></p>	</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- ==========================
-CLIENTS SECTION END
-=========================== -->
-
-
-
-
-
-<!-- ==========================
-NEWSLETTER SECTION
-=========================== -->
-<section>
-    <div class="container-fluid">
-        <div class="row color-bg">
-            <div class="col-md-6 nopadding subscribe text-center">
-                <h1><i class="fa fa-paper-plane"></i><span>Subscribe, please</span></h1><!-- Heading -->
-                <form action="<?php echo e(route('author.store.newsletter')); ?>" method="post">
-                    <?php echo csrf_field(); ?>
-                    <input type="email" name="email" placeholder="Paste Your Email" required><!-- E-Mail -->
-                    <input type="submit" name="" value="Send"><!-- Submit Button -->
-                </form>
-            </div>
-            <div class="col-md-6 nopadding features-intro-img">
-                <div class="about-image" style="background-image:url(img/newsletter.png)"></div><!-- Right Image -->
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ==========================
-NEWSLETTER SECTION END
-=========================== -->
-
-
-
-<!-- ==========================
-CONTACT SECTION
-=========================== -->
-<section class="text-center section-padding contact-wrap" id="contact">
-    <!-- To Top Button -->
-    <a href="index.html#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
-    <div class="container">
-        <!-- Headline -->
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="arrow">Drop <span>me</span> a line</h1>
-            </div>
-        </div>
-        <div class="row contact-details">
-            <!-- Adress Box -->
-            <div class="col-md-4">
-                <div class="dark-box box-hover">
-                    <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
-                    <p>23 Ipsum street, New York</p>
-                </div>
-            </div>
-            <!-- Phone Number Box -->
-            <div class="col-md-4">
-                <div class="dark-box box-hover">
-                    <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
-                    <p>+12 345 6789</p>
-                </div>
-            </div>
-            <!-- E-Mail Box -->
-            <div class="col-md-4">
-                <div class="dark-box box-hover">
-                    <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
-                    <p><a href="index.html#">info@themewagon.com</a></p>
-                </div>
-            </div>
-        </div>
-
-        <br>
-        <!-- Social Buttons - use font-awesome, past in what you want -->
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="social-buttons">
-                    <li><a href="index.html#" class="social-btn"><i class="fa fa-dribbble"></i></a></li><!-- dribble -->
-                    <li><a href="index.html#" class="social-btn"><i class="fa fa-twitter"></i></a></li><!-- twitter -->
-                    <li><a href="index.html#" class="social-btn"><i class="fa fa-facebook"></i></a></li><!-- facebook -->
-                    <li><a href="index.html#" class="social-btn"><i class="fa fa-deviantart"></i></a></li><!-- deviantart -->
-                    <li><a href="index.html#" class="social-btn"><i class="fa fa-youtube"></i></a></li><!-- youtube -->
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ==========================
-CONTACT SECTION END
 
 <?php $__env->stopSection(); ?>
 

@@ -30,18 +30,13 @@
                     @endif
 
 
-                    <form method="post" action="{{url('update/blog/category/'. $blogcatedit->id)}}">
+                    <form method="post" action="{{url('admin/update/blog/category/'. $blogcatedit->id)}}">
                         @csrf
                         <div class="modal-body pd-20">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Blog Category Name English</label>
+                                <label for="exampleInputEmail1">Blog Category Name</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                       value="{{$blogcatedit->category_name_en}}" name="category_name_en">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Blog Category Name Russian</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                       value="{{$blogcatedit->category_name_ru}}" name="category_name_ru">
+                                       value="{{$blogcatedit->category_name}}" name="category_name">
                             </div>
                         </div><!-- modal-body -->
                         <div class="modal-footer">

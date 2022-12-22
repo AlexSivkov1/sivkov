@@ -21,6 +21,12 @@ Route::get('/', function (){
 
 Auth::routes();
 
+Route::get('/', function (){
+    return view('author.dashboard');
+});
+
+Route::get('/', 'HomeController@index');
+
 /*Route::get('/', 'HomeController@index')->name('home');*/
 
 
@@ -41,6 +47,8 @@ Route::group([
 'namespace' => 'Admin',
 'middleware' =>['auth', 'admin']],
 function (){
+
+
 Route::get('dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('logout', 'DashboardController@logout')->name('logout');
@@ -59,14 +67,43 @@ Route::get('post/add', 'PostController@create')->name('add.post');
 Route::post('post/store', 'PostController@store')->name('store.post');
 
 //Action
-    Route::get('post/delete/{id}', 'PostController@delete');
-    Route::get('post/edit/{id}', 'PostController@edit');
+Route::get('post/delete/{id}', 'PostController@delete');
+Route::get('post/edit/{id}', 'PostController@edit');
 
-    Route::post('post/update/{id}', 'PostController@update')->name('update.post');
-    Route::post('post/update/nophoto/{id}', 'PostController@PostUpdateNoPhoto')->name('update.postnophoto');
-    Route::post('post/update/photo/{id}', 'PostController@PostUpdatePhoto')->name('update.postphoto');
+Route::post('post/update/{id}', 'PostController@update')->name('update.post');
+Route::post('post/update/nophoto/{id}', 'PostController@PostUpdateNoPhoto')->name('update.postnophoto');
+Route::post('post/update/photo/{id}', 'PostController@PostUpdatePhoto')->name('update.postphoto');
+
+// Blog Admin All
+    Route::get('blog/category/list', 'BlogController@blogCatList')->name('blog.categorylist');
+
+    Route::post('store/blog', 'BlogController@storeBlogCat')->name('store.blog.category');
+
+// 'delete/blogcategory/'
+    Route::get('delete/blogcategory/{id}', 'BlogController@deleteBlogCat');
+    Route::get('edit/blogcategory/{id}', 'BlogController@editBlogCat');
+
+    Route::post('update/blog/category/{id}', 'BlogController@updateBlogCat');
+
+    Route::get('add/blogpost', 'BlogController@createBlogPost')->name('add.blogpost');
 
 
+
+    Route::get('all/blogposts', 'BlogController@index')->name('all.blogposts');
+
+
+    Route::post('store/blogpost', 'BlogController@storeBlogPostImage')->name('store.blogpost_image');
+
+    Route::get('delete/blogpost/{id}', 'BlogController@deleteBlogPost');
+
+    Route::get('edit/blogpost/{id}', 'BlogController@editBlogPost');
+
+
+
+
+
+//Route::post('edit/post/{id}', 'Admin\PostController@editPost');
+    Route::post('update/blogpost/{id}', 'BlogController@updateBlogPost');
 
 
 
@@ -105,10 +142,14 @@ Route::group([
 
 
 
+
     }
 
 
 
 
 );
+
+
+Route::get('allposts', 'Author\PostController@posts')->name('to_all_posts');
 

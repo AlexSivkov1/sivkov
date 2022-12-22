@@ -1534,7 +1534,7 @@ Mocha.prototype.loadFiles = function(fn){
     file = path.resolve(file);
     suite.emit('pre-require', global, file, self);
     suite.emit('require', require(file), file, self);
-    suite.emit('post_image-require', global, file, self);
+    suite.emit('post-require', global, file, self);
     --pending || (fn && fn());
   });
 };

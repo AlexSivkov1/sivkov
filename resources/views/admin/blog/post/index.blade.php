@@ -7,14 +7,14 @@
 
         <div class="sl-pagebody">
             <div class="sl-page-title">
-                <h5>Posts Lists</h5>
+                <h5>BlogPosts Lists</h5>
 
             </div><!-- sl-page-title -->
 
             <div class="card pd-20 pd-sm-40 col-md-12">
-                <h6 class="card-body-title">Posts List
-                    <a href="{{route('add.blogpost')}}" class="btn btn-sm btn-warning" style="float:right;"
-                        >Add New Post</a>
+                <h6 class="card-body-title">BlogPosts List
+                    <a href="{{route('admin.add.blogpost')}}" class="btn btn-sm btn-warning" style="float:right;"
+                        >Add New BlogPost</a>
                 </h6>
 
 
@@ -22,21 +22,21 @@
                     <table id="datatable1" class="table display responsive nowrap">
                         <thead>
                         <tr>
-                            <th class="wd-15p">Post Title</th>
-                            <th class="wd-15p">Post Category</th>
-                            <th class="wd-15p">Image</th>
+                            <th class="wd-15p">BlogPost Title</th>
+                            <th class="wd-15p">BlogPost Category</th>
+                            <th class="wd-15p">BlogPost Image</th>
                             <th class="wd-20p">Action</th>
 
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($post as $item)
+                        @foreach($blogposts as $item)
                             <tr>
-                                <td>{{$item->post_title_en}}</td>
-                                <td>{{ $item->category_name_en }}</td>
+                                <td>{{$item->post_title}}</td>
+                                <td>{{ $item->category_name}}</td>
                                 <td><img src="{{URL::to($item->post_image)}}" style="height: 50px; width: 50px;" > </td>
-                                <td><a href="{{URL::to('edit/post/'. $item->id)}}" class="btn btn-sm btn-info">Edit</a>
-                                    <a href="{{URL::to('delete/post/'. $item->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a></td>
+                                <td><a href="{{URL::to('admin/edit/blogpost/'. $item->id)}}" class="btn btn-sm btn-info">Edit</a>
+                                    <a href="{{URL::to('admin/delete/blogpost/'. $item->id)}}" class="btn btn-sm btn-danger" id="delete">Delete</a></td>
                             </tr>
                         @endforeach
 
@@ -73,18 +73,13 @@
                 @endif
 
 
-                <form method="post" action="{{route('store.blog.category')}}">
+                <form method="post" action="{{--{{route('store.blog.category')}}--}}">
                     @csrf
                     <div class="modal-body pd-20">
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Category Name English</label>
+                            <label for="exampleInputEmail1">Category Name</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                   placeholder="Category" name="category_name_en">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Category Name Russian</label>
-                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                   placeholder="Category" name="category_name_ru">
+                                   placeholder="Category" name="category_name">
                         </div>
                     </div><!-- modal-body -->
                     <div class="modal-footer">
