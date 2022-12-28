@@ -71,7 +71,7 @@
 
 @else  {{--when logged in--}}
 <!-- ########## START: LEFT PANEL ########## -->
-<div class="sl-logo"><a href="{{url('/')}}"><i class="icon ion-android-star-outline"></i> На Сайт </a></div>
+<div class="sl-logo"><a href="{{url('/author/')}}"><i class="icon ion-android-star-outline"></i> На Сайт </a></div>
 <div class="sl-sideleft">
 
 

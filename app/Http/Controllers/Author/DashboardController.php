@@ -24,6 +24,6 @@ class DashboardController extends Controller
             'messege'=>'Successfully Logout',
             'alert-type'=>'success'
         );
-        return Redirect()->route('author.dashboard')->with($notification);
+        return Redirect()->route('login')->with($notification);
     }
 }

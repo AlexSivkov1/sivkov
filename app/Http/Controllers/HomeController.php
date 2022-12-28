@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -16,6 +17,21 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
+
+
+    public function login(){
+        if (Auth::check() && Auth::user()->role->id == 1){
+            $this->redirectTo = route('admin.dashboard') ;
+        }else{
+
+            $this->redirectTo = route('home');
+        }
+
+
+
+        $this->middleware('guest')->except('logout');
+    }
+
 
     /**
      * Show the application dashboard.
@@ -32,6 +48,6 @@ class HomeController extends Controller
             ->limit(8)
             ->get();
 
-        return view('author.dashboard', compact('posts', 'bposts'));
+        return view('author.main.index', compact('posts', 'bposts'));
     }
 }

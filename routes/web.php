@@ -16,16 +16,16 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function (){
-    return view('author.dashboard');
+    return view('home');
 });
 
 Auth::routes();
 
 Route::get('/', function (){
-    return view('author.dashboard');
+    return view('home');
 });
 
-Route::get('/', 'HomeController@index');
+
 
 /*Route::get('/', 'HomeController@index')->name('home');*/
 
@@ -115,30 +115,19 @@ Route::post('post/update/photo/{id}', 'PostController@PostUpdatePhoto')->name('u
 
 
 
-
-
-
-
-
-
-
 // FrontEnd Routes
 
 // Author Group
 Route::group([
-    'as'=>'author.',
-    'prefix' => 'author',
-    'namespace' => 'Author',
+
+
+
     'middleware' =>['auth', 'author']],
     function (){
-        Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+        Route::get('/', 'HomeController@index')->name('home');
 
         Route::post('store/newsletter', 'NewsletterController@newsletter')->name('store.newsletter');
-
-
-
-
-
+        Route::post('/', 'HomeController@login');
 
 
 
