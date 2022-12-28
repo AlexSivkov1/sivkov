@@ -1,64 +1,124 @@
-$(window).load(function(){
-	$('#preloader').fadeOut('slow',function(){$(this).remove();});
-});
+/* =================================
+------------------------------------
+	WebUni - Education Template
+	Version: 1.0
+ ------------------------------------ 
+ ====================================*/
 
 
-/******************************************************************************************************************************
-Learn More Page Scroll
-*******************************************************************************************************************************/
-$(function() {
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
-});
+'use strict';
 
-/******************************************************************************************************************************
-Menu
-*******************************************************************************************************************************/ 
-(function() {
 
-	var bodyEl = document.body,
-		//content = document.querySelector( '.content-wrap' ),
-		openbtn = document.getElementById( 'open-button' ),
-		closebtn = document.getElementById( 'close-button' ),
-		isOpen = false;
+$(window).on('load', function() {
+	/*------------------
+		Preloder
+	--------------------*/
+	$(".loader").fadeOut(); 
+	$("#preloder").delay(400).fadeOut("slow");
 
-	function init() {
-		initEvents();
+
+	/*------------------
+		Gallery item
+	--------------------*/
+	if($('.course-items-area').length > 0 ) {
+		var containerEl = document.querySelector('.course-items-area');
+		var mixer = mixitup(containerEl);
 	}
 
-	function initEvents() {
-		openbtn.addEventListener( 'click', toggleMenu );
-		if( closebtn ) {
-			closebtn.addEventListener( 'click', toggleMenu );
-		}
+});
 
-		/* close the menu element if the target it´s not the menu element or one of its descendants..
-		content.addEventListener( 'click', function(ev) {
-			var target = ev.target;
-			if( isOpen && target !== openbtn ) {
-				toggleMenu();
+(function($) {
+
+	/*------------------
+		Navigation
+	--------------------*/
+	$('.nav-switch').on('click', function(event) {
+		$('.main-menu').slideToggle(400);
+		event.preventDefault();
+	});
+
+
+	/*------------------
+		Background Set
+	--------------------*/
+	$('.set-bg').each(function() {
+		var bg = $(this).data('setbg');
+		$(this).css('background-image', 'url(' + bg + ')');
+	});
+
+
+	/*------------------
+		Realated courses
+	--------------------*/
+    $('.rc-slider').owlCarousel({
+		autoplay:true,
+		loop: true,
+		nav:true,
+		dots: false,
+		margin: 30,
+		navText: ['', '<i class="fa fa-angle-right"></i>'],
+		responsive:{
+			0:{
+				items:1
+			},
+			576:{
+				items:2
+			},
+			990:{
+				items:3
+			},
+			1200:{
+				items:4
 			}
-		} );
-		*/
-	}
-
-	function toggleMenu() {
-		if( isOpen ) {
-			classie.remove( bodyEl, 'show-menu' );
 		}
-		else {
-			classie.add( bodyEl, 'show-menu' );
+	});
+
+
+    /*------------------
+		Accordions
+	--------------------*/
+	$('.panel-link').on('click', function (e) {
+		$('.panel-link').removeClass('active');
+		var $this = $(this);
+		if (!$this.hasClass('active')) {
+			$this.addClass('active');
 		}
-		isOpen = !isOpen;
-	}
+		e.preventDefault();
+	});
 
-	init();
 
-})();
 
+	/*------------------
+		Circle progress
+	--------------------*/
+	$('.circle-progress').each(function() {
+		var cpvalue = $(this).data("cpvalue");
+		var cpcolor = $(this).data("cpcolor");
+		var cptitle = $(this).data("cptitle");
+		var cpid 	= $(this).data("cpid");
+
+		$(this).append('<div class="'+ cpid +'"></div><div class="progress-info"><h2>'+ cpvalue +'%</h2><p>'+ cptitle +'</p></div>');
+
+		if (cpvalue < 100) {
+
+			$('.' + cpid).circleProgress({
+				value: '0.' + cpvalue,
+				size: 176,
+				thickness: 9,
+				fill: cpcolor,
+				emptyFill: "rgba(0, 0, 0, 0)"
+			});
+		} else {
+			$('.' + cpid).circleProgress({
+				value: 1,
+				size: 176,
+				thickness: 9,
+				fill: cpcolor,
+				emptyFill: "rgba(0, 0, 0, 0)"
+			});
+		}
+
+	});
+
+})(jQuery);
 

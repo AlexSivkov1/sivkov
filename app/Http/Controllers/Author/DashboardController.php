@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index(){
 
-        return view('author.dashboard');
+        return view('author.main.index');
 
 
 
