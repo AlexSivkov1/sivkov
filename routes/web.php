@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/change-password', 'Auth\ChangePasswordController@change_password')->name('password.change');
+
+Route::post('/change-password', 'Auth\ChangePasswordController@update_password')->name('password.update');
+
+/*ADMIN ROUTES*/
+
+Route::group(['middleware' => ['auth', 'admin']], function(){
+    Route::get('/admin/dashboard', 'Admin\DashboardController@index')->name('admin.dashboard');
+
+
+
+
+});
+
+/*USER ROUTES*/
+
+Route::group(['middleware' => ['auth', 'user']], function(){
+    Route::get('/', 'User\FrontController@index')->name('user.home');
+
+
 });
